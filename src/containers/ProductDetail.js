@@ -9,7 +9,8 @@ import {
 const ProductDetail = () => {
   const { productId } = useParams();
   let product = useSelector((state) => state.product);
-  const { image, title, price, category, description } = product;
+  const {id, image, title, price, category, description } = product;
+  console.log("poduct",product);
   const dispatch = useDispatch();
   const fetchProductDetail = async (id) => {
     const response = await axios
@@ -26,9 +27,10 @@ const ProductDetail = () => {
       dispatch(removeSelectedProduct());
     };
   }, [productId]);
+  
   return (
     <div className="ui grid container">
-      {Object.keys(product).length === 0 ? (
+      {id === 0 ? (
         <div>...Loading</div>
       ) : (
         <div className="ui placeholder segment">

@@ -20,9 +20,8 @@ const ProductListing = () => {
     useEffect(()=>{
         fetchProducts();
     },[]);
-    console.log("products",products);
     return (
-        <div className = "ui grid container" style={{paddingTop:"70px"}}>
+        <div className="ui grid container">
             <ProductComponent />
         </div>
     );

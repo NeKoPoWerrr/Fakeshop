@@ -1,14 +1,16 @@
 
-import './App.css';
 import Header from './containers/Header.js';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import ProductListing from './containers/ProductListing';
+import './App.css';
 import ProductDetail from "./containers/ProductDetail";
+
+const basePath = process.env.PUBLIC_URL || '/';
 
 function App() {
   return (
       <div className="App">
-        <Router>
+        <Router basename={basePath}>
           <Header />
           <Switch>
             <Route path ="/" exact component={ProductListing} />
